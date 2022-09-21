@@ -7,14 +7,14 @@ import {
   UilSunset,
 } from "@iconscout/react-unicons";
 
-function TemperatureAndDetails() {
+function TemperatureAndDetails({ data }) {
   return (
     <div>
       <div className="flex items-center justify-center py-6 text-xl text-cyan-300">
-        <p>Cloudy or whatever</p>
+        <p>{data.details}</p>
       </div>
       <div className="flex items-center justify-center py-2 text-xl text-white">
-        <p className="text-5xl">34°</p>
+        <p className="text-5xl">{data.temp}°C</p>
       </div>
 
       <div className="flex flex-row justify-between items-center   text-white py-3">
@@ -30,20 +30,20 @@ function TemperatureAndDetails() {
             <UilTemperature size={18} className="mr-1" />
             <span>Feels Like: </span>
 
-            <span className="font-medium">36°</span>
+            <span className="font-medium">{data.feels_like}°C</span>
           </div>
           <div className="flex flex-row font-light text-sm justify-start items-center gap-x-3 w-1/1">
             <UilTear size={18} className="mr-1" />
             <span>Humidity: </span>
 
-            <span className="font-medium">65%</span>
+            <span className="font-medium">{data.humidity}%</span>
           </div>
 
           <div className="flex flex-row font-light text-sm justify-start items-center gap-x-3 w-1/1">
             <UilWind size={18} className="mr-1" />
             <span>Wind: </span>
 
-            <span className="font-medium">11 km/h</span>
+            <span className="font-medium">{data.speed} km/h</span>
           </div>
         </div>
       </div>
