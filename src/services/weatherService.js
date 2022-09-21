@@ -225,6 +225,4 @@ const formatToLocalTime = (
 const iconUrlFromCode = (code) =>
   `http://openweathermap.org/img/wn/${code}@2x.png`;
 
-export default getFormattedWeatherData;
-
-export { formatToLocalTime, iconUrlFromCode };
+export { formatToLocalTime, iconUrlFromCode, getFormattedWeatherData };
