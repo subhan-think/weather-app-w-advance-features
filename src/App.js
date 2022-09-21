@@ -10,21 +10,21 @@ function App() {
   // LearningCode();
 
   const [query, setQuery] = useState({ q: "berlin" });
-  const [units, setUnits] = useState("metric");
+  // const [units, setUnits] = useState("metric");
   const [weather, setWeather] = useState(null);
 
   useEffect(() => {
     const fetchWeather = async () => {
       let getDataWeather = await getFormattedWeatherData({
         ...query,
-        units: units,
+        units: "metric",
       });
       setWeather(getDataWeather);
       console.log(getDataWeather);
     };
 
     fetchWeather();
-  }, [query, units]);
+  }, [query]);
 
   console.log(weather);
   return (
@@ -45,32 +45,32 @@ function App() {
   );
 }
 
-function LearningCode() {
-  let url1 = new URL("https://javascript.info/profile/admin");
-  // fetch(url1)
-  //   .then((data) => data.json)
-  //   .then((data) => console.log(data));
-  // console.log(url1);
-  // https://javascript.info/profile/admin
-  // let m = "https://developer.mozilla.org";
-  // let b = new URL(m);
-  // console.log(new URL({}));
-  // alert(b);
+// function LearningCode() {
+//   let url1 = new URL("https://javascript.info/profile/admin");
+// fetch(url1)
+//   .then((data) => data.json)
+//   .then((data) => console.log(data));
+// console.log(url1);
+// https://javascript.info/profile/admin
+// let m = "https://developer.mozilla.org";
+// let b = new URL(m);
+// console.log(new URL({}));
+// alert(b);
 
-  // const paramsString = "q=URLUtils.searchParams&topic=api";
-  // const searchParams = new URLSearchParams(paramsString);
+// const paramsString = "q=URLUtils.searchParams&topic=api";
+// const searchParams = new URLSearchParams(paramsString);
 
-  // // Iterating the search parameters
-  // for (const p of searchParams) {
-  //   console.log(p);
-  // }
+// // Iterating the search parameters
+// for (const p of searchParams) {
+//   console.log(p);
+// }
 
-  // console.log(searchParams.has("topic")); // true
-  // console.log(searchParams.get("topic")); // true
-  // Search parameters can also be an object
-  const paramsObj = { foo: "bar", baz: "bar" };
-  const searchParams = new URLSearchParams(paramsObj);
-  // console.log(searchParams);
-}
+// console.log(searchParams.has("topic")); // true
+// console.log(searchParams.get("topic")); // true
+// Search parameters can also be an object
+// const paramsObj = { foo: "bar", baz: "bar" };
+// const searchParams = new URLSearchParams(paramsObj);
+// console.log(searchParams);
+// }
 
 export default App;
