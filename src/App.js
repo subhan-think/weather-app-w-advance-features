@@ -3,7 +3,6 @@ import TopButton from "./components/TopButton";
 import Inputs from "./components/Inputs";
 import TimeAndLocation from "./components/TimeAndLocation";
 import TemperatureAndDetails from "./components/TemperatureAndDetails";
-import Forecast from "./components/Forecast";
 import { getFormattedWeatherData } from "./services/weatherService";
 import { useState, useEffect } from "react";
 function App() {
@@ -34,12 +33,14 @@ function App() {
       <TopButton />
       <Inputs changeInput={setQuery} />
 
-      {weather !== null && (
-        <>
-          <TimeAndLocation data={weather.daily} />
-          <TemperatureAndDetails data={weather.daily} />
-          <Forecast title={"Daily Forecast"} />
-        </>
+      {weather && (
+        <div>
+          <TimeAndLocation weather={weather} />
+          <TemperatureAndDetails weather={weather} />
+
+          {/* <Forecast title="hourly forecast" items={weather.hourly} /> */}
+          {/* <Forecast title="daily forecast" items={weather.daily} /> */}
+        </div>
       )}
     </div>
   );
